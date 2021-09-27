@@ -88,14 +88,27 @@ public class SPTV20YearsWeather {
                     minInt=yearWeather[month-1][j];
                 }
             }
-        for(int i = 0; i < yearWeather.length; i++) {
-            for (int j = 0; j < yearWeather[i].length; j++) {
-                if (maxInt==yearWeather[i][j]){
-                    System.out.printf("Максимальна температура в этом месяце была %d числа",i);
-                break;
+        int max_number = 0;
+        for (int i = 0; i < yearWeather.length; i++) {
+            for (int j = 0; j < yearWeather.length; j++) {
+            int[] is = yearWeather[j];
+                if (yearWeather[i][j] > max_number) {
+                max_number = yearWeather[i][j];
                 }
             }
         }
+
+        System.out.println("максимальная температура в году: " + max_number);
+        int min_number = 0;
+        for (int i = 0; i < yearWeather.length; i++) {
+            for (int j = 0; j < yearWeather.length; j++) {
+                int[] is = yearWeather[j];
+                if (yearWeather[i][j] < min_number) {
+                min_number = yearWeather[i][j];
+                }
+            }
+        }
+System.out.println("минимальная температура в году: " + min_number);
         System.out.printf("В этот день была температура: %2d%n",yearWeather[month-1][day-1]);
         System.out.printf("Максимальная температура в этом месяце была: %2d%n",maxInt);
         System.out.printf("Минимальная температура в этом месяце была: %2d%n",minInt);
