@@ -2,6 +2,7 @@
 package sptv20yearsweather;
 
 import java.util.Random;
+import java.util.Scanner;
 
 
 public class SPTV20YearsWeather {
@@ -71,6 +72,33 @@ public class SPTV20YearsWeather {
             }
             System.out.println();
         }
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Введите день месяца: ");
+        int day=scanner.nextInt();
+        System.out.println("Введите месяц (1-12): ");
+        int month=scanner.nextInt();
+        int maxInt=0,minInt=0;
+        for (int j = 0; j < yearWeather[month-1].length; j++) {    
+            if(maxInt<yearWeather[month-1][j]){
+                maxInt=yearWeather[month-1][j];
+                }
+            }
+            for (int j = 0; j < yearWeather[month-1].length; j++) {    
+                if(minInt>yearWeather[month-1][j]){
+                    minInt=yearWeather[month-1][j];
+                }
+            }
+        for(int i = 0; i < yearWeather.length; i++) {
+            for (int j = 0; j < yearWeather[i].length; j++) {
+                if (maxInt==yearWeather[i][j]){
+                    System.out.printf("Максимальна температура в этом месяце была %d числа",i);
+                break;
+                }
+            }
+        }
+        System.out.printf("В этот день была температура: %2d%n",yearWeather[month-1][day-1]);
+        System.out.printf("Максимальная температура в этом месяце была: %2d%n",maxInt);
+        System.out.printf("Минимальная температура в этом месяце была: %2d%n",minInt);
     }
     
 }
